@@ -1,0 +1,27 @@
+{
+  "name": "tree-layout-tester",
+  "version": "0.0.0",
+  "description": "Tests cases for various tree layout algorithms",
+  "main": "layout_test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/tree-layout-tester.git"
+  },
+  "keywords": [
+    "tree",
+    "layout",
+    "balanced",
+    "binary",
+    "search",
+    "algorithms",
+    "data",
+    "structures"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "99cbc6081bf62d188290604fca4323a388c42f06"
+}
