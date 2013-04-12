@@ -12,7 +12,7 @@ function T(v,l,r) {
 //Do inorder traversal
 function testTree(t, layout, root) {
   var n = root.n
-  t.equals(layout.root(n), root.v)
+  t.equals(layout.root(n), root.v, "root " + n)
   var ptr = layout.begin(n)
   
   function leftAncestor(x) {
@@ -30,27 +30,24 @@ function testTree(t, layout, root) {
   }
   
   function visit(node, parent) {
-    console.log(node.v, node.h)
-    t.equals(layout.height(n, node.v), node.h)
+    t.equals(layout.height(n, node.v), node.h, "height " + n + ", " + node.v)
     if(parent) {
-      t.equals(layout.parent(n, node.v), parent.v)
+      t.equals(layout.parent(n, node.v), parent.v, "parent " + n + ", " + node.v)
     }
     if(node.left) {
-      t.equals(layout.left(n, node.v), node.left.v)
+      t.equals(layout.left(n, node.v), node.left.v, "left " + n + ", " + node.v)
       visit(node.left, node)
     }
-    t.equals(ptr, node.v)
+    t.equals(ptr, node.v, "next " + n + ", " + node.v)
     ptr = layout.next(n, ptr)
     if(node.right) {
-      t.equals(layout.right(n, node.v), node.right.v)
+      t.equals(layout.right(n, node.v), node.right.v, "right " + n + ", " + node.v)
       visit(node.right, node)
     }
-    t.equals(layout.lo(n, node.v), leftAncestor(node))
-    t.equals(layout.hi(n, node.v), rightAncestor(node))
   }
   
   visit(root, null)
-  t.equals(layout.end(n), ptr)
+  t.equals(layout.end(n), ptr, "end " + n)
   
   //Do a reverse traversal
   function rvisit(node) {
@@ -58,13 +55,13 @@ function testTree(t, layout, root) {
       rvisit(node.right)
     }
     ptr = layout.prev(n, ptr)
-    t.equals(ptr, node.v)
+    t.equals(ptr, node.v, "prev " + n + ", " + node.v)
     if(node.left) {
       rvisit(node.left)
     }
   }
   rvisit(root)
-  t.equals(layout.begin(n), ptr)
+  t.equals(layout.begin(n), ptr, "begin " + n)
 }
 
 module.exports = testTree
