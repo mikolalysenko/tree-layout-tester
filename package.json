@@ -1,6 +1,6 @@
 {
   "name": "tree-layout-tester",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Tests cases for various tree layout algorithms",
   "main": "layout_test.js",
   "scripts": {
