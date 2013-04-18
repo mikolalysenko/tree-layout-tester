@@ -44,6 +44,9 @@ function testTree(t, layout, root) {
       t.equals(layout.right(n, node.v), node.right.v, "right " + n + ", " + node.v)
       visit(node.right, node)
     }
+    t.equals(layout.leaf(n,node.v), (!node.left && !node.right), "leaf " + n + "," + node.v)
+    t.equals(layout.lo(n,node.v), leftAncestor(node), "lo " + n + "," + node.v)
+    t.equals(layout.hi(n,node.v), rightAncestor(node), "hi " + n + "," + node.v)
   }
   
   visit(root, null)
