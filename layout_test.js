@@ -57,8 +57,8 @@ function testTree(t, layout, root) {
     if(node.right) {
       rvisit(node.right)
     }
-    ptr = layout.prev(n, ptr)
     t.equals(ptr, node.v, "prev " + n + ", " + node.v)
+    ptr = layout.prev(n, ptr)
     if(node.left) {
       rvisit(node.left)
     }
